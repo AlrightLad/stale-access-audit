@@ -1,0 +1,59 @@
+name: Bug report
+description: The collector or the report behaves differently from what the README or the code says
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before posting, redact everything that identifies a tenant: credentials, API client ids, organisation and site GUIDs, custom-field names, hostnames, user names and emails. Replace them with placeholders. Anything that reaches this public tracker stays in its history.
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system and where the tool runs (workstation, scheduled task, CI runner, container)
+      placeholder: Windows Server 2022, scheduled task as a service account
+    validations:
+      required: true
+  - type: input
+    id: node
+    attributes:
+      label: Node.js version
+      description: Output of `node --version`
+      placeholder: v24.x
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: RMM and PSA platform
+      description: Products and API versions on both sides of the join, and whether the PSA side is the JSON-file adapter or a live adapter
+      placeholder: NinjaOne (public API v2) and a PSA export via JsonFileDirectory
+    validations:
+      required: true
+  - type: input
+    id: command
+    attributes:
+      label: Command and commit
+      description: The CLI command that failed and the commit SHA you ran
+      placeholder: node src/cli.ts poll --preview at 4c0507a
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Exact error
+      description: The message verbatim and the exit code. Redact ids.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Output excerpt
+      description: The summary JSON or the lines around the failure, redacted. For a walk that did not close, include `walk.note` and the counts.
+      render: text
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+      description: Point at the README section or the test that describes the behaviour you expected

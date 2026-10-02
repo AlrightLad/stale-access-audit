@@ -1,5 +1,7 @@
 # stale-access-audit
 
+![CI](https://github.com/AlrightLad/stale-access-audit/actions/workflows/ci.yml/badge.svg)
+
 Find dormant accounts that still hold privileged access, across two systems that do not share an
 identifier. The RMM knows who can reach which devices and when they last signed in. The PSA knows
 which clients and sites exist and which people are supposed to have access. This tool joins the

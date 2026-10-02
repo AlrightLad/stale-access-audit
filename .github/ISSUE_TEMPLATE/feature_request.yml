@@ -1,0 +1,44 @@
+name: Feature request
+description: Propose a change to the collector, the join, the dormancy rule or the report
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What you cannot do today, and what it costs you. A concrete case beats a general one.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: What the tool should do instead. If it touches the cohort rule, say why the 90/180 bands or the precedence should move; they are deliberately not configurable.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Including doing it outside this tool
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - collector (sweep, feed walk, evidence model)
+        - GUID join / PSA adapter
+        - reconciliation report
+        - CLI / configuration / state store
+        - documentation
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety
+      options:
+        - label: This change does not make the tool write to the RMM or the PSA
+          required: true
+        - label: This change does not read any custom field beyond the two configured GUID fields
+          required: true
